@@ -19,8 +19,10 @@ namespace FolderSizeAnalyzer
             }
 
             // Include top-level files
-            long rootFileSize = Directory.GetFiles(folderPath)
+            long rootFilesSize = Directory.GetFiles(folderPath)
                 .Select(f => new FileInfo(f).Length).Sum();
+
+            folderSizes[folderPath] = rootFilesSize;
 
             return folderSizes;
         }
